@@ -1,0 +1,23 @@
+*.gem
+*.rbc
+.bundle
+gemfiles/*.lock
+.config
+coverage
+rdoc
+spec/reports
+tmp
+.rspec_status
+
+# Ignore vim's swap files
+.*.sw?
+
+# Bundler artifacts
+/Gemfile.lock
+/coverage/
+/doc/
+*.bundle
+*.so
+*.o
+*.a
+mkmf.log
