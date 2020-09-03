@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Gem::Specification.new do |s|
   s.name = "redis_hash_store"
   s.version = "1.0.0"
@@ -11,13 +13,17 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.license = "MIT"
 
-  s.add_development_dependency "appraisal"
-  s.add_development_dependency "rake", "~> 12.3.2"
-  s.add_development_dependency "rspec", "~> 3.0"
+  s.add_development_dependency("appraisal")
+  s.add_development_dependency("rake", "~> 12.3.2")
+  s.add_development_dependency("rspec", "~> 3.0")
+  s.add_development_dependency("rubocop")
+  s.add_development_dependency("rubocop-performance")
+  s.add_development_dependency("rubocop-rails")
+  s.add_development_dependency("rubocop-rspec")
 
-  s.add_dependency "activesupport"
-  s.add_dependency "railties"
-  s.add_dependency "redis"
-  s.add_dependency "redis-rails"
-  s.add_dependency "redis-store"
+  s.add_dependency("activesupport")
+  s.add_dependency("railties")
+  s.add_dependency("redis")
+  s.add_dependency("redis-rails")
+  s.add_dependency("redis-store")
 end

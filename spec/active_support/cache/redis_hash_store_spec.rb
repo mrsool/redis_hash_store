@@ -50,7 +50,7 @@ RSpec.describe ActiveSupport::Cache::RedisHashStore do
     context 'when value cached' do
       it 'returns cached value' do
         cached_value = 'bar'
-        new_value ='baz' 
+        new_value = 'baz'
         Rails.cache.write_hash_value('foo', 'boo', cached_value)
 
         result = Rails.cache.fetch_hash_value('foo', 'boo') { new_value }
@@ -73,7 +73,7 @@ RSpec.describe ActiveSupport::Cache::RedisHashStore do
     context 'when value cached and force: true' do
       it 'returns new cached value' do
         cached_value = 'bar'
-        new_value ='baz' 
+        new_value = 'baz'
         Rails.cache.write_hash_value('foo', 'boo', cached_value)
 
         result = Rails.cache.fetch_hash_value('foo', 'boo', force: true) { new_value }
