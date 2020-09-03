@@ -1,0 +1,17 @@
+name: Analyze code statically
+on:
+  - pull_request
+
+jobs:
+  reek:
+    name: runner / reek
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+      - name: reek
+        uses: reviewdog/action-reek@v1
+        with:
+          reek_version: 6.0.0
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review

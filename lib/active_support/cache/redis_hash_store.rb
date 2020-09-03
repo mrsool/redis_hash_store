@@ -37,12 +37,14 @@ module ActiveSupport
       end
 
       def fetch_hash_value(prefix, key, **options)
-        raise(ArgumentError, MISSING_BLOCK_MSG) if !block_given? && options[:force]
+        force = options[:force]
+
+        raise(ArgumentError, MISSING_BLOCK_MSG) if !block_given? && force
 
         if block_given?
           entry = read_hash_value(prefix, key)
 
-          return entry if entry.present? && !options[:force]
+          return entry if entry.present? && !force
 
           write_hash_value(prefix, key, yield, options)
         end

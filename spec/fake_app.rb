@@ -3,6 +3,7 @@
 require 'redis_hash_store'
 require 'rails'
 
+# The Dummy class is responsible for imitate rails app for tests
 module Dummy
   class Application < Rails::Application
     config.eager_load = false
