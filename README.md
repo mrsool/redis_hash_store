@@ -57,7 +57,7 @@ Rails.cache.read_hash_value('foo', 'baz')
 => 'boo'
 ```
 
-Looks pretty easy, right? Maybe you can even think: "What the difference?"
+Looks pretty easy, right? Maybe you're thinking: "What the difference?"
 
 
 1. You can access all records under the `foo` hash
