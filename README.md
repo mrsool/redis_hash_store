@@ -1,8 +1,14 @@
 # RedisHashStore
 `RedisHashStore` extends ActiveSupport's [`RedisCacheStore`](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/cache/redis_cache_store.rb) to provide the ability to easily use Redis hashes for caching.
 
+We decided to create this gem because:
+
+1. We were previously using [`#delete_matched`](https://apidock.com/rails/ActiveSupport/Cache/Store/delete_matched) which can have many performance issues at scale (See this [similar issue at GitLab]((https://gitlab.com/gitlab-org/gitlab/-/issues/201808)).
+2. `#deleted_matched` doesn't delete values from all the nodes in a Redis cluster.
+
 ## Rails
-Supported Rails versions are listed in `Appraisals`. 
+Supported Rails versions are listed in [`Appraisals`](https://github.com/mrsool/redis_hash_store/blob/master/Appraisals). 
+
 ## Installing
 Install it yourself as:
 ```bash
@@ -84,12 +90,6 @@ Rails.cache.fetch_hash_value('foo', 'boo') { 'baz' }
 Rails.cache.fetch_hash_value('foo', 'boo', force: true) { 'baz' }
 => 'baz'
 ```
-
-## Idea
-We decided to create this gem because:
-
- 1. We were previously using [`#delete_matched`](https://apidock.com/rails/ActiveSupport/Cache/Store/delete_matched) which can have many performance issues at scale (See this [similar issue at GitLab]((https://gitlab.com/gitlab-org/gitlab/-/issues/201808)).
-2. `#deleted_matched` doesn't delete values from all the nodes in a Redis cluster.
 
 ### Benchmarks:
 ```ruby
