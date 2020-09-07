@@ -2,10 +2,10 @@ Gem::Specification.new do |s|
   s.name = "redis_hash_store"
   s.version = "1.0.0"
   s.authors = ["Alex Golubenko"]
-  s.email = "alexandr1golubenko@gmail.com"
-  s.summary = "Redis Hache Store"
-  s.description = "Addition for the redis_cache_store to provide ability"\
-                  "to store cache using Redis Hashes"
+  s.email = "a.golubenko@mrsool.co"
+  s.summary = "Redis Hash Store"
+  s.description = "An addition to Rails's redis_cache_store to allow you"\
+                  "to easily use Redis hashes for caching"
   s.files = Dir["lib/**/*"]
   s.homepage = "https://github.com/mrsool/redis_hash_store"
   s.require_paths = ["lib"]
