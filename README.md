@@ -1,7 +1,5 @@
 # RedisHashStore
-`RedisHashStore` is addition to `ActiveSupport::Cache::RedisCacheStore`.
-
-The main idea of this gem is to expand functionality of `RedisCacheStore` by adding abillity to use Redis Hashes as cache-store.
+`RedisHashStore` extends ActiveSupport's [`RedisCacheStore`](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/cache/redis_cache_store.rb) to provide the ability to easily use Redis hashes for caching.
 
 ## Rails
 Supported Rails versions are listed in `Appraisals`. 
