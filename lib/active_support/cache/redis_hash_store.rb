@@ -3,7 +3,7 @@
 module ActiveSupport
   module Cache
     class RedisHashStore < RedisCacheStore
-      MISSING_BLOCK_MSG = "Missing block: Calling `Cache#fetch` with `force: true` requires a block.".freeze
+      MISSING_BLOCK_MSG = "Missing block: Calling `Cache#fetch` with `force: true` requires a block."
 
       def initialize(options)
         super(**options)
@@ -37,18 +37,16 @@ module ActiveSupport
       end
 
       def fetch_hash_value(prefix, key, **options)
-        raise(ArgumentError, MISSING_BLOCK_MSG) if !block_given? && options[:force]
+        force = options[:force]
+
+        raise(ArgumentError, MISSING_BLOCK_MSG) if !block_given? && force
 
         if block_given?
-          if options[:force]
-            write_hash_value(prefix, key, yield, options)
-          else
-            entry = read_hash_value(prefix, key)
+          entry = read_hash_value(prefix, key)
 
-            return entry if entry.present?
+          return entry if entry.present? && !force
 
-            write_hash_value(prefix, key, yield, options)
-          end
+          write_hash_value(prefix, key, yield, options)
         end
 
         read_hash_value(prefix, key)
@@ -80,7 +78,7 @@ module ActiveSupport
       end
 
       private
-      
+
       def delete_hash_entry(prefix, key)
         failsafe(:delete_hash_entry, returning: false) do
           redis.with { |c| c.hdel(prefix, key) }

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 RSpec.describe ActiveSupport::Cache::RedisHashStore do
+  let!(:redis) { Rails.cache.redis }
+
   describe '#write_hash_value' do
     it 'writes values as redis hash' do
       Rails.cache.write_hash_value('foo', 'boo', 'bar')
@@ -50,7 +52,7 @@ RSpec.describe ActiveSupport::Cache::RedisHashStore do
     context 'when value cached' do
       it 'returns cached value' do
         cached_value = 'bar'
-        new_value ='baz' 
+        new_value = 'baz'
         Rails.cache.write_hash_value('foo', 'boo', cached_value)
 
         result = Rails.cache.fetch_hash_value('foo', 'boo') { new_value }
@@ -73,7 +75,7 @@ RSpec.describe ActiveSupport::Cache::RedisHashStore do
     context 'when value cached and force: true' do
       it 'returns new cached value' do
         cached_value = 'bar'
-        new_value ='baz' 
+        new_value = 'baz'
         Rails.cache.write_hash_value('foo', 'boo', cached_value)
 
         result = Rails.cache.fetch_hash_value('foo', 'boo', force: true) { new_value }
@@ -123,9 +125,5 @@ RSpec.describe ActiveSupport::Cache::RedisHashStore do
       expect(Rails.cache.read_hash_value(prefix, key_1)).to eq(nil)
       expect(Rails.cache.read_hash_value(prefix, key_2)).to eq(nil)
     end
-  end
-
-  def redis
-    Rails.cache.redis
   end
 end
