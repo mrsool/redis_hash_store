@@ -3,7 +3,7 @@
 
 We decided to create this gem because:
 
-1. We were previously using [`#delete_matched`](https://apidock.com/rails/ActiveSupport/Cache/Store/delete_matched) which can have many performance issues at scale (See this [similar issue at GitLab]((https://gitlab.com/gitlab-org/gitlab/-/issues/201808)).
+1. We were previously using [`#delete_matched`](https://apidock.com/rails/ActiveSupport/Cache/Store/delete_matched) which can have many performance issues at scale (See this [similar issue at GitLab](https://gitlab.com/gitlab-org/gitlab/-/issues/201808)).
 2. `#deleted_matched` doesn't delete values from all the nodes in a Redis cluster.
 
 ## Rails
