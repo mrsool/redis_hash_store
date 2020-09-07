@@ -91,7 +91,7 @@ Rails.cache.fetch_hash_value('foo', 'boo', force: true) { 'baz' }
 => 'baz'
 ```
 
-### Benchmarks:
+## Benchmarks
 ```ruby
 indexes = 1..1_000_000
 
