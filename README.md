@@ -50,7 +50,7 @@ Here is a list of available methods:
 ```ruby
 city = "Riyadh"
 coffee_shop_type = "coffee_shop"
-restaurants_type = "estaurant"
+restaurants_type = "restaurant"
 
 coffee_shops_count = Service.where(type: coffee_shop_type, city: city).count
 => 250
