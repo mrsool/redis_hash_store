@@ -89,10 +89,10 @@ Rails.cache.fetch_hash_value('foo', 'boo', force: true) { 'baz' }
 ```
 
 ## Idea
-One of the reasons why we decided to create this Gem is [`#delete_matched`](https://apidock.com/rails/ActiveSupport/Cache/Store/delete_matched).
-We had the same issue as GitLab: you can check it [here](https://gitlab.com/gitlab-org/gitlab/-/issues/201808)
+We decided to create this gem because:
 
-Second one is that `#delete_matched` is not scan all the nodes in case if you use `Redis Cluster`.
+ 1. We were previously using [`#delete_matched`](https://apidock.com/rails/ActiveSupport/Cache/Store/delete_matched) which can have many performance issues at scale (See this [similar issue at GitLab]((https://gitlab.com/gitlab-org/gitlab/-/issues/201808)).
+2. `#deleted_matched` doesn't delete values from all the nodes in a Redis cluster.
 
 ### Benchmarks:
 ```ruby
