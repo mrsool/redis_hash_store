@@ -45,50 +45,64 @@ Here is a list of available methods:
 
 ### Examples
 
+> Let's imagine we need to store amount of Services for City.
+
 ```ruby
-Rails.cache.write_hash_value('foo', 'boo', 'baz')
+city = "Riyadh"
+coffee_shop_type = "coffee_shop"
+restaurants_type = "estaurant"
+
+coffee_shops_count = Service.where(type: coffee_shop_type, city: city).count
+=> 250
+restaurants_count = Service.where(type: restaurants_type, city: city).count
+=> 340
+
+Rails.cache.write_hash_value("#{city} counters", coffee_shop_type, coffee_shops_count)
 => 1
-Rails.cache.write_hash_value('foo', 'baz', 'boo')
+Rails.cache.write_hash_value("#{city} counters", restaurants_type, restaurants_count)
 => 1
 ```
 
 Now it's accessible by:
 
 ```ruby
-Rails.cache.read_hash_value('foo', 'boo')
-=> 'baz'
-Rails.cache.read_hash_value('foo', 'baz')
-=> 'boo'
+Rails.cache.read_hash_value("#{city} counters", coffee_shop_type)
+=> 250
+Rails.cache.read_hash_value("#{city} counters", restaurants_type)
+=> 340
 ```
 
 Looks pretty easy, right? Maybe you're thinking: "What the difference?"
 
 
-1. You can access all records under the `foo` hash
+1. You can access all records under the `"#{city} counters"` hash
 ```ruby
-Rails.cache.read_hash('foo')
-=> { "baz"=>"boo", "boo"=>"baz" }
+Rails.cache.read_hash("#{city} counters")
+=> { "coffee_shop"=>250, "restaurant"=>340 }
 ```
-2. You can easily remove every value under `foo`
+2. You can easily remove every value under `"#{city} counters"`
 ```ruby
-Rails.cache.delete_hash_value('foo', 'baz')
+Rails.cache.delete_hash_value("#{city} counters", coffee_shop_type)
 => 1
 ```
-3. You can also delete the entire `foo` hash
+3. You can also delete the entire `"#{city} counters"` hash
 ```ruby
-Rails.cache.delete_hash('foo')
+Rails.cache.delete_hash("#{city} counters")
 => 1
 ```
 
 What about `#fetch`?
 Here you go:
 ```ruby
-Rails.cache.fetch_hash_value('foo', 'boo') { 'bar' }
-=> 'bar'
-Rails.cache.fetch_hash_value('foo', 'boo') { 'baz' }
-=> 'bar'
-Rails.cache.fetch_hash_value('foo', 'boo', force: true) { 'baz' }
-=> 'baz'
+Rails.cache.fetch_hash_value("#{city} counters", coffee_shop_type) do
+  Service.where(type: coffee_shop_type, city: city).count
+end
+=> 250
+
+Rails.cache.fetch_hash_value("#{city} counters", coffee_shop_type, force: true) do
+  Service.where(type: coffee_shop_type, city: city).count * 2
+end
+=> 500
 ```
 
 ## Benchmarks
