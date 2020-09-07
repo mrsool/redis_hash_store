@@ -71,7 +71,7 @@ Rails.cache.read_hash('foo')
 Rails.cache.delete_hash_value('foo', 'baz')
 => 1
 ```
-3. or even whole "group":
+3. You can also delete the entire `foo` hash
 ```ruby
 Rails.cache.delete_hash('foo')
 => 1
