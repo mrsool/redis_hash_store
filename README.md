@@ -20,7 +20,7 @@ $ bundle
 ```
 
 ## Configuration
-All what you need to do is to add:
+All you need to do is add:
 ```ruby
 # config/production(development|test|staging|preview).rb
 
