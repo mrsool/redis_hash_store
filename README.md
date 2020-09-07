@@ -116,13 +116,3 @@ delete_hash     0.000000   0.000225   0.000225 (0.677891)
 ## Contributing
 Please see [CONTRIBUTING.md](https://github.com/mrsool/redis_hash_store/blob/master/CONTRIBUTING.md).
 
-
-## About Mrsool
-<img src="https://miro.medium.com/max/2000/1*SRVN-sOkDz1if2YtezsCSQ.png" width="500">
-
-Mrsool (pronounced mar-sool) is the first deliver-anything platform in the MENA region, founded in 2015 by Ayman Al Sanad and Nayef Al Samri, Mrsool is the largest Saudi app of its kind in the region!
-
-With more than 1.7 billion Saudi Riyals GMV in 2019, and continued hypergrowth across three countries, Mrsool has solved many technical and operational challenges by being customer-obsessed and engineering-driven in every single decision made.
-We’re proudly a community of people helping each other, in fact, more than 70% of Mrsoolers (our professional couriers) have ordered from Mrsool. It’s one massive community of carefully vetted professionals.
-
-[Read more](https://medium.com/mrsool/mrsool-the-super-app-with-super-powers-423c3037d31a)..
