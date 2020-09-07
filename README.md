@@ -67,7 +67,7 @@ Let me show you:
 Rails.cache.read_hash('foo')
 => { "baz"=>"boo", "boo"=>"baz" }
 ```
-2. You can easily remove each single value of "group":
+2. You can easily remove every value under `foo`
 ```ruby
 Rails.cache.delete_hash_value('foo', 'baz')
 => 1
