@@ -62,7 +62,7 @@ Looks pretty easy, right? Maybe you can even think: "What the difference?"
 
 Let me show you:
 
-1. Now you can access all "group" of records:
+1. You can access all records under the `foo` hash
 ```ruby
 Rails.cache.read_hash('foo')
 => { "baz"=>"boo", "boo"=>"baz" }
