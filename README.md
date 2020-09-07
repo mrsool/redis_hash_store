@@ -5,7 +5,7 @@ The main idea of this gem is to expand functionality of `RedisCacheStore` by add
 
 ## Rails
 Supported Rails versions are listed in `Appraisals`. 
-## Instaling
+## Installing
 Install it yourself as:
 ```bash
 $ gem install redis_hash_store
