@@ -116,10 +116,6 @@ delete_hash     0.000000   0.000225   0.000225 (0.677891)
 ## Contributing
 Please see [CONTRIBUTING.md](https://github.com/mrsool/redis_hash_store/blob/master/CONTRIBUTING.md).
 
-## License
-redis_hash_store is Copyright ©2020 Alex Golubenko and Mrsool.
-
-Please, see: [LICENSE](https://github.com/mrsool/redis_hash_store/blob/master/LICENSE)
 
 ## About Mrsool
 <img src="https://miro.medium.com/max/2000/1*SRVN-sOkDz1if2YtezsCSQ.png" width="500">
