@@ -28,8 +28,7 @@ config.cache_store = :redis_hash_store, redis_cache_store_options
 ```
 
 ## Usage
-This gem is just adding new functionality to `RedisCacheStore`.
-So all previous logic is not affected.
+This gem simply adds new functionality to `RedisCacheStore`, so all existing logic in that class is not affected.
 
 Here is a list of available methods:
 
@@ -115,4 +114,3 @@ delete_hash     0.000000   0.000225   0.000225 (0.677891)
 
 ## Contributing
 Please see [CONTRIBUTING.md](https://github.com/mrsool/redis_hash_store/blob/master/CONTRIBUTING.md).
-
