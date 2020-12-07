@@ -36,16 +36,18 @@ This gem simply adds new functionality to `RedisCacheStore`, so all existing log
 
 Here is a list of available methods:
 
-* `#write_hash_value`
-* `#read_hash_value`
-* `#fetch_hash_value`
-* `#read_hash`
-* `#delete_hash_value`
-* `#delete_hash`
+* [`#write_hash_value`](#write_hash_value)
+* [`#read_hash_value`](#read_hash_value)
+* [`#read_hash`](#read_hash)
+* [`#delete_hash_value`](#delete_hash_value)
+* [`#delete_hash`](#delete_hash)
+* [`#fetch_hash_value`](#fetch_hash_value)
 
-### Examples
+## Examples
 
 > Let's imagine we need to store amount of Services for City.
+
+#### #write_hash_value
 
 ```ruby
 city = "Riyadh"
@@ -62,6 +64,7 @@ Rails.cache.write_hash_value("#{city} counters", coffee_shop_type, coffee_shops_
 Rails.cache.write_hash_value("#{city} counters", restaurants_type, restaurants_count)
 => 1
 ```
+#### #read_hash_value
 
 Now it's accessible by:
 
@@ -71,28 +74,33 @@ Rails.cache.read_hash_value("#{city} counters", coffee_shop_type)
 Rails.cache.read_hash_value("#{city} counters", restaurants_type)
 => 340
 ```
+#### #read_hash
 
 Looks pretty easy, right? Maybe you're thinking: "What the difference?"
-
 
 1. You can access all records under the `"#{city} counters"` hash
 ```ruby
 Rails.cache.read_hash("#{city} counters")
 => { "coffee_shop"=>250, "restaurant"=>340 }
 ```
+
+#### #delete_hash_value
+
 2. You can easily remove every value under `"#{city} counters"`
 ```ruby
 Rails.cache.delete_hash_value("#{city} counters", coffee_shop_type)
 => 1
 ```
+
+#### #delete_hash
+
 3. You can also delete the entire `"#{city} counters"` hash
 ```ruby
 Rails.cache.delete_hash("#{city} counters")
 => 1
 ```
-
-What about `#fetch`?
-Here you go:
+#### #fetch_hash_value
+4. You can fetch needed value under `"#{city} counters"`
 ```ruby
 Rails.cache.fetch_hash_value("#{city} counters", coffee_shop_type) do
   Service.where(type: coffee_shop_type, city: city).count
