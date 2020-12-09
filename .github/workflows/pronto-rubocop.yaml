@@ -1,0 +1,15 @@
+name: Pronto
+
+on:
+  - pull_request
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+      - run: gem install rubocop pronto pronto-rubocop rubocop-performance rubocop-rspec rubocop-rails
+      - run: PRONTO_PULL_REQUEST_ID="$(jq --raw-output .number "$GITHUB_EVENT_PATH")" PRONTO_GITHUB_ACCESS_TOKEN="${{ secrets.GITHUB_TOKEN }}" pronto run -f github_status github_pr -c origin/${{ github.base_ref }}

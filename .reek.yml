@@ -1,0 +1,22 @@
+detectors:
+  # You can disable smells completely
+  IrresponsibleModule:
+    enabled: false
+  UtilityFunction:
+    enabled: false
+  FeatureEnvy:
+    enabled: false
+  LongParameterList:
+    max_params: 4
+  TooManyStatements:
+    max_statements: 9
+  DataClump:
+    enabled: false
+  DuplicateMethodCall:
+    max_calls: 3
+  UncommunicativeVariableName:
+    enabled: false
+  NestedIterators:
+    max_allowed_nesting: 2	
+  RepeatedConditional:
+    max_ifs: 3
