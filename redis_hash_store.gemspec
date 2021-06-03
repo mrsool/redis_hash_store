@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name = "redis_hash_store"
   s.version = "1.0.0"
   s.authors = ["Alex Golubenko", "Omar Bahareth"]
-  s.email = "a.golubenko@mrsool.co"
+  s.email = "sub@mrsool.co"
   s.summary = "Redis Hash Store"
   s.description = "An addition to Rails's redis_cache_store to allow you"\
                   "to easily use Redis hashes for caching"
