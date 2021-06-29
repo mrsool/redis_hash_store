@@ -1,5 +1,5 @@
 # RedisHashStore
-![](https://img.shields.io/gem/v/redis_hash_store)
+![](https://img.shields.io/gem/v/redis_hash_store) ![](https://img.shields.io/github/workflow/status/mrsool/redis_hash_store/CI)
 
 `RedisHashStore` extends ActiveSupport's [`RedisCacheStore`](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/cache/redis_cache_store.rb) to provide the ability to easily use Redis hashes for caching.
 
