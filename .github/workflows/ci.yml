@@ -25,9 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: '2.7'
       - name: Build and run tests
         env:
           REDIS_URL: redis://localhost:6379/0
