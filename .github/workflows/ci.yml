@@ -15,19 +15,22 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
     services:
       redis:
         image: redis
         ports: ['6379:6379']
         options: --entrypoint redis-server
-
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        ruby: ['2.6', '2.7', '2.8', '2.9', '3.0', '3.1']
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: ${{ matrix.ruby }}
       - name: Build and run tests
         env:
           REDIS_URL: redis://localhost:6379/0
