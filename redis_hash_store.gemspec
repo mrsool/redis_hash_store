@@ -13,16 +13,13 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.license = "MIT"
 
-  s.add_development_dependency("appraisal")
-  s.add_development_dependency("rake", "~> 12.3.2")
-  s.add_development_dependency("rspec", "~> 3.0")
-  s.add_development_dependency("rubocop")
-  s.add_development_dependency("rubocop-performance")
-  s.add_development_dependency("rubocop-rails")
-  s.add_development_dependency("rubocop-rspec")
+  s.add_development_dependency("appraisal", "2.2.0")
+  s.add_development_dependency("rake", "~> 13.0.1")
+  s.add_development_dependency("rspec", "~> 3.9")
+  s.add_development_dependency("rubocop"), require: false
+  s.add_development_dependency("rubocop-rails"), require: false
+  s.add_development_dependency("rubocop-rspec"), require: false
 
-  s.add_dependency("activesupport")
-  s.add_dependency("railties")
   s.add_dependency("redis")
   s.add_dependency("redis-rails")
   s.add_dependency("redis-store")
