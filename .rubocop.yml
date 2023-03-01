@@ -4,6 +4,8 @@ require:
 
 AllCops:
   TargetRubyVersion:  2.7.1
+  Exclude:
+    - 'gemfiles/**/*'
 
   Exclude:
     - 'db/**/*'
@@ -1023,4 +1025,3 @@ Rails/Blank:
 
 Layout/EmptyLineAfterMagicComment:
   Enabled: true
-
