@@ -12,7 +12,6 @@ tmp
 .*.sw?
 
 # Bundler artifacts
-/Gemfile.lock
 /coverage/
 /doc/
 *.bundle
