@@ -57,5 +57,4 @@ jobs:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
           bundle install --jobs 4 --retry 3
-          bundle exec appraisal install
           bundle exec appraisal ${{ matrix.appraisal }} rake
