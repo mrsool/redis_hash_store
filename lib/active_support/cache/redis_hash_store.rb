@@ -46,7 +46,7 @@ module ActiveSupport
 
           return entry if entry.present? && !force
 
-          write_hash_value(prefix, key, yield, options)
+          write_hash_value(prefix, key, yield, **options)
         end
 
         read_hash_value(prefix, key)
