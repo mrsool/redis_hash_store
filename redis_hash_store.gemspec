@@ -14,13 +14,12 @@ Gem::Specification.new do |s|
   s.license = "MIT"
 
   s.add_development_dependency("appraisal")
-  s.add_development_dependency("rake", "~> 12.3.2")
-  s.add_development_dependency("rspec", "~> 3.0")
+  s.add_development_dependency("rake")
+  s.add_development_dependency("rspec")
   s.add_development_dependency("rubocop-rails")
   s.add_development_dependency("rubocop-rspec")
 
   s.add_dependency("activesupport")
-  s.add_dependency("railties")
   s.add_dependency("redis")
   s.add_dependency("redis-rails")
   s.add_dependency("redis-store")

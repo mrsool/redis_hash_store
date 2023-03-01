@@ -20,10 +20,10 @@ jobs:
         image: redis
         ports: ['6379:6379']
         options: --entrypoint redis-server
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, ubuntu-22.04]
         ruby:
           - 3.2
           - 3.1
@@ -44,19 +44,12 @@ jobs:
           - { ruby: 3.0, appraisal: rails7.0 }
           - { ruby: 2.7, appraisal: rails7.0 }
           - { ruby: 2.6, appraisal: rails7.0 }
-    env:
-      BUNDLE_GEMFILE: gemfiles/${{ matrix.appraisal }}.gemfile
-    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - uses: actions/cache@v3
-        with:
-          path: vendor/bundle
-          key: v1-rubygems-local-${{ runner.os }}-${{ matrix.ruby }}-${{ hashFiles(format('gemfiles/{0}.gemfile.lock', matrix.appraisal)) }}
       - name: Build and Run tests
         env:
           REDIS_URL: redis://localhost:6379/0
@@ -64,4 +57,5 @@ jobs:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
           bundle install --jobs 4 --retry 3
+          bundle exec appraisal install
           bundle exec appraisal rake
