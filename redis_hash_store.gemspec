@@ -16,9 +16,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency("appraisal", "2.2.0")
   s.add_development_dependency("rake", "~> 13.0.1")
   s.add_development_dependency("rspec", "~> 3.9")
-  s.add_development_dependency("rubocop", require: false)
-  s.add_development_dependency("rubocop-rails", require: false)
-  s.add_development_dependency("rubocop-rspec", require: false)
+  s.add_development_dependency("rubocop")
+  s.add_development_dependency("rubocop-rails")
+  s.add_development_dependency("rubocop-rspec")
 
   s.add_dependency("redis")
   s.add_dependency("redis-rails")
