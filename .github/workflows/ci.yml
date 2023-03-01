@@ -51,7 +51,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
+      - uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: v1-rubygems-local-${{ runner.os }}-${{ matrix.ruby }}-${{ hashFiles(format('gemfiles/{0}.gemfile.lock', matrix.appraisal)) }}
       - name: Build and Run tests
         env:
           REDIS_URL: redis://localhost:6379/0
