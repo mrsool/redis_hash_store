@@ -8,13 +8,13 @@ end
 
 if [2.6..2.7].include?(RUBY_VERSION.to_f)
   appraise "rails5.2" do
-    gem "rails", "~> 5.2.0"
+    gem "rails", "~> 5.2"
   end
 end
 
 if RUBY_VERSION.to_f <= 3.2
   appraise "rails6.0" do
-    gem "rails", "~> 6.0.2"
+    gem "rails", "~> 6.0"
   end
 
   appraise "rails6.1" do
