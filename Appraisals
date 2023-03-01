@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-if [3.1..3.2].include?(RUBY_VERSION.to_f)
+if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('3.1.0') || Gem::Version.new(RUBY_VERSION) <= Gem::Version.new('3.2.1')
   appraise "rails7.0" do
     gem "rails", "~> 7.0"
   end
 end
 
-if [2.6..2.7].include?(RUBY_VERSION.to_f)
+if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.6.0') || Gem::Version.new(RUBY_VERSION) <= Gem::Version.new('2.7.7')
   appraise "rails5.2" do
     gem "rails", "~> 5.2"
   end
 end
 
-if RUBY_VERSION.to_f <= 3.2
+if Gem::Version.new(RUBY_VERSION) <= Gem::Version.new('3.2.1')
   appraise "rails6.0" do
     gem "rails", "~> 6.0"
   end
