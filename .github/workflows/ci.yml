@@ -30,6 +30,21 @@ jobs:
           - 3.0
           - 2.7
           - 2.6
+        rails:
+          - 5.2
+          - 6.0
+          - 6.1
+          - 6.3
+          - 7.0
+        exclude:
+          - { ruby: 3.2, appraisal: rails5.2 }
+          - { ruby: 3.2, appraisal: rails6.0 }
+          - { ruby: 3.2, appraisal: rails6.1 }
+          - { ruby: 3.1, appraisal: rails5.2 }
+          - { ruby: 3.0, appraisal: rails5.2 }
+          - { ruby: 3.0, appraisal: rails7.0 }
+          - { ruby: 2.7, appraisal: rails7.0 }
+          - { ruby: 2.6, appraisal: rails7.0 }
     steps:
       - uses: actions/checkout@v3
       - name: Setup Ruby
@@ -44,5 +59,5 @@ jobs:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
           bundle install --jobs 4 --retry 3
-          bundle exec appraisal install
+          RAILS_VERSION=${{ matrix.rails }} bundle exec appraisal install
           bundle exec appraisal rake
