@@ -22,6 +22,7 @@ jobs:
         options: --entrypoint redis-server
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         ruby:
           - 3.2
