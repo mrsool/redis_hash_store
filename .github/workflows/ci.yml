@@ -21,6 +21,7 @@ jobs:
         ports: ['6379:6379']
         options: --entrypoint redis-server
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-20.04, ubuntu-22.04]
         ruby:
@@ -43,7 +44,8 @@ jobs:
           - { ruby: 3.0, appraisal: rails_7_0 }
           - { ruby: 2.7, appraisal: rails_7_0 }
           - { ruby: 2.6, appraisal: rails_7_0 }
-
+    env:
+      BUNDLE_GEMFILE: gemfiles/${{ matrix.appraisal }}.gemfile
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
