@@ -44,8 +44,6 @@ jobs:
           - { ruby: 3.0, appraisal: rails7.0 }
           - { ruby: 2.7, appraisal: rails7.0 }
           - { ruby: 2.6, appraisal: rails7.0 }
-    env:
-      BUNDLE_GEMFILE: gemfiles/${{ matrix.appraisal }}.gemfile
     steps:
       - uses: actions/checkout@v3
       - name: Setup Ruby
@@ -60,4 +58,4 @@ jobs:
         run: |
           bundle install --jobs 4 --retry 3
           bundle exec appraisal install
-          bundle exec appraisal rake
+          bundle exec appraisal ${{ matrix.appraisal }} rake
