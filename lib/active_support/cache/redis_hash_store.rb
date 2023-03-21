@@ -22,7 +22,7 @@ module ActiveSupport
 
           if entry
             if entry.expired?
-              delete_hash_entry(key)
+              delete_hash_entry(prefix, key)
               payload[:hit] = false if payload
               nil
             else
